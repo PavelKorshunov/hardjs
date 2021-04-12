@@ -2,6 +2,6 @@
 
 Для запуска на сервере выполняем:
 
-``` bash
+```bash
 $ pm2 start process.yaml --env production
 ```
