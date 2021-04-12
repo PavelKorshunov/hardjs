@@ -1,0 +1,16 @@
+apps:
+  - name: 'hard-js'
+    script: 'npm'
+    args: 'start'
+    cwd: './'
+    watch: 'dist'
+    autorestart: true
+    env:
+      NODE_ENV: development
+    env_production:
+      NODE_ENV: production
+    watch_options:
+      followSymlinks: false
+    max_memory_restart: '512M'
+    error_file: "./tmp/logs/app-err.log"
+    out_file: "./tmp/logs/app-out.log"
