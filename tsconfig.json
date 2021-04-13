@@ -12,6 +12,6 @@
         "baseUrl": "./",
         "incremental": true
     },
-    "include": ["src/**/*", "config/**/*", "public/**/*.ts"],
+    "include": ["src/**/*", "config/**/*", "core/**/*", "public/**/*.ts"],
     "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
 }

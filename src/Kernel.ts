@@ -1,19 +1,32 @@
-import { Express } from 'express';
+import * as express from 'express';
+import { Router } from '../core/Router';
+import { Template } from '../core/Template';
+import { dirname, sep } from 'path';
 
 export class Kernel {
-    private server: Express;
+    protected app;
+    public static folders = {
+        templates: 'templates',
+    };
 
-    constructor(server: Express) {
-        this.server = server;
+    constructor() {
+        this.app = express();
     }
 
-    public run(port: number): void {
-        this.listen(port);
+    public async handle(viewEngine?: boolean): Promise<Kernel> {
+        this.app.disable('x-powered-by');
+        await Router.create(this.app).init();
+        if (viewEngine) new Template().init(this.app);
+        return this;
     }
 
-    protected listen(port: number) {
-        this.server.listen(port, () => {
-            console.log(`Example app listening at http://localhost:${port}`);
+    public listen(port: number): void {
+        this.app.listen(port, () => {
+            console.log(`Server app listening at http://localhost:${port}`);
         });
+    }
+
+    public static templateFolder(): string {
+        return dirname(__dirname) + sep + '..' + sep + this.folders.templates;
     }
 }
