@@ -1,6 +1,6 @@
 import router from '../config/routes';
-import { Container } from '../core/dependency';
-import { Kernel as BaseKernel } from '../core/Kernel';
+import { Container } from '@hardjs/core';
+import { Kernel as BaseKernel } from '@hardjs/core';
 
 export class Kernel extends BaseKernel {
     constructor() {
