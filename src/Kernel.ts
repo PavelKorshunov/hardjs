@@ -3,7 +3,7 @@ import { Container } from '../core';
 import { Kernel as BaseKernel } from '../core';
 
 export class Kernel extends BaseKernel {
-    constructor() {
+    public constructor() {
         super();
     }
 
