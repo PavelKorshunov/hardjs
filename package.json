@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "rimraf dist && tsc && nodemon dist/public/index.js",
         "start": "rimraf dist && tsc && node --max-old-space-size=512 dist/public/index.js",
-        "lint": "eslint \"{src,core,migrations,public,config,test}/**/*.ts\" --fix"
+        "lint": "eslint \"{src,core,public,config,test}/**/*.ts\" --fix"
     },
     "author": "Pavel",
     "license": "ISC",
