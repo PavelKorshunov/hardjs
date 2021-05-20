@@ -1,8 +1,9 @@
 import { User } from '../Entity/User';
-import { getRepository } from 'typeorm';
+import { EntityRepository, Repository, getCustomRepository } from 'typeorm';
 
-export class UserRepository {
-    constructor(props) {
-        getRepository(User);
+@EntityRepository(User)
+export class UserRepository extends Repository<User> {
+    public get() {
+        return getCustomRepository(User);
     }
 }
