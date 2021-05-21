@@ -1,9 +1,7 @@
 import { User } from '../Entity/User';
-import { EntityRepository, Repository, getCustomRepository } from 'typeorm';
+import { EntityRepository, Repository } from 'typeorm';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
-    public get() {
-        return getCustomRepository(User);
-    }
+    // TODO repository
 }

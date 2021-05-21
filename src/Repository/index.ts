@@ -1,3 +1,4 @@
+import { getCustomRepository } from 'typeorm';
 import { UserRepository as UserRepositoryImpl } from './UserRepository';
 
-export const UserRepository = new UserRepositoryImpl().get();
+export const UserRepository = getCustomRepository(UserRepositoryImpl);
