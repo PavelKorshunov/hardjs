@@ -1,5 +1,4 @@
 import router from '../config/routes';
-import { Container } from '../core';
 import { Kernel as BaseKernel } from '../core';
 
 export class Kernel extends BaseKernel {
@@ -8,7 +7,7 @@ export class Kernel extends BaseKernel {
     }
 
     public initializeKernel() {
-        Container.set('kernel', this);
+        this.container.set('kernel', this);
     }
 
     public async loadRoute() {

@@ -8,7 +8,8 @@ export class TypeOrmBundle extends Bundle {
         const database = config.get('database');
 
         if (database) {
-            await new Connection().create(database);
+            const connection = await new Connection().create(database);
+            container.set('database.connection', connection);
         }
     }
 }

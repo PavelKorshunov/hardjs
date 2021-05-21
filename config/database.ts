@@ -9,7 +9,7 @@ export const database = [
         database: 'express',
         synchronize: false,
         logging: false,
-        entities: ['src/Entity/**/*.js'],
-        migrations: ['src/Migrations/**/*.js'],
+        entities: [__dirname + '/../src/Entity/**/*.js'],
+        migrations: [__dirname + '/../src/Migrations/**/*.js'],
     },
 ];
