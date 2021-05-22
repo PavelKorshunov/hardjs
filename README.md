@@ -11,8 +11,9 @@ $ npm install
 # Running the app
 
 ```bash
-# watch mode
+# watch mode (open 2 terminal)
 $ npm run dev
+$ tsc -w
 
 # production mode
 $ npm run start
