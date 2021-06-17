@@ -10,7 +10,7 @@ export class Kernel extends BaseKernel {
         this.container.set('kernel', this);
     }
 
-    public async loadRoute() {
-        await router(this.app);
+    public async loadRoute(controllers: Map<string, any>) {
+        await router(this.app, controllers);
     }
 }

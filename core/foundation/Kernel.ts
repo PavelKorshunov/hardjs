@@ -10,6 +10,7 @@ export abstract class Kernel implements IKernel<Kernel> {
     protected app;
     protected config;
     protected appRoot;
+    protected srcFolder = 'src';
     protected container: IContainer;
     protected fileSystem: Filesystem;
     protected readonly version: string = '1.0.0';
@@ -17,10 +18,11 @@ export abstract class Kernel implements IKernel<Kernel> {
     protected constructor() {
         this.container = Container;
         this.initializeApplication();
+        this.fileSystem = new Filesystem();
     }
 
     public abstract initializeKernel(): void;
-    public abstract loadRoute(): void;
+    public abstract loadRoute(controllers: Map<string, any>): void;
 
     private initializeApplication(): void {
         this.app = express();
@@ -33,7 +35,6 @@ export abstract class Kernel implements IKernel<Kernel> {
                 'Cannot start http server, make sure to register the app root inside index.ts file',
             );
         }
-        this.fileSystem = new Filesystem();
 
         this.initializeKernel();
         this.initializeConfig();
@@ -90,5 +91,9 @@ export abstract class Kernel implements IKernel<Kernel> {
 
     public getAppRoot(): string {
         return this.appRoot;
+    }
+
+    public getSrcFolder() {
+        return this.getAppRoot() + this.fileSystem.separator() + this.srcFolder;
     }
 }
