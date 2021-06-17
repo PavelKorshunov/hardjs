@@ -1,5 +1,7 @@
-import { HomeController } from '../../src/Controller';
+export default async (app, controllers) => {
+    const HomeController = controllers.get('HomeController');
+    const DatabaseController = controllers.get('DatabaseController');
 
-export default async (app) => {
     app.get('/', HomeController.index);
+    app.get('/database', DatabaseController.index);
 };
