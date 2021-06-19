@@ -26,3 +26,28 @@ To run on the server:
 ```bash
 $ pm2 start process.yaml --env production
 ```
+
+# Migrations
+
+Help:
+
+```bash
+$ npx typeorm -h
+$ npx typeorm migration:run -h
+$ npx typeorm migration:create -h
+```
+
+Create migration file:
+
+```bash
+$ npx typeorm migration:create -n Post -d src/Migrations
+```
+
+To perform migrations, you need to:
+
+**config/database.ts** change to **export default** and run command:
+
+```bash
+$ tsc
+$ npx typeorm migration:run -f dist/config/database.js
+```
