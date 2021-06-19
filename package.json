@@ -1,6 +1,6 @@
 {
     "name": "hardjs",
-    "version": "1.0.0",
+    "version": "0.1.6",
     "description": "nodejs custom framework",
     "main": "index.js",
     "scripts": {
@@ -8,10 +8,15 @@
         "start": "rimraf dist && tsc && node --max-old-space-size=512 dist/public/index.js",
         "lint": "eslint \"{src,core,public,config,test}/**/*.ts\" --fix"
     },
-    "author": "Pavel",
+    "author": "Pavel Korshunov",
     "license": "ISC",
+    "homepage": "https://github.com/pavelkorshunov/hardjs#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pavelkorshunov/hardjs.git"
+    },
     "dependencies": {
-        "@hardjs/core": "^0.1.2",
+        "@hardjs/core": "^0.1.6",
         "express": "^4.17.1",
         "express-handlebars": "^5.3.0",
         "lodash": "^4.17.21",
