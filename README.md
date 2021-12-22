@@ -27,6 +27,14 @@ To run on the server:
 $ pm2 start process.yaml --env production
 ```
 
+# Running from Docker
+
+We start migrations, change **config/database.ts** file and launch docker:
+
+```bash
+$ docker-compose up -d --build --force-recreate
+```
+
 # Migrations
 
 Help:
@@ -45,7 +53,7 @@ $ npx typeorm migration:create -n Post -d src/Migrations
 
 To perform migrations, you need to:
 
-**config/database.ts** change to **export default** and run command:
+**config/database.ts** change from **export const database =** to **export default** and run command:
 
 ```bash
 $ tsc

@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  node:
+    image: hardjs:latest
+    container_name: hardjs
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    working_dir: /var/www/hardjs
+    volumes:
+      - ./:/var/www/hardjs
+    ports:
+      - "3303:3000"
+    networks:
+      - app-network
+
+  db:
+    image: postgres:11
+    container_name: postgres
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=stage
+    volumes:
+      - dbvolume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+volumes:
+  dbvolume:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
+
